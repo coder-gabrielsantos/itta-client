@@ -5,7 +5,7 @@ export function Divider({ children }) {
                 <div className="w-full border-t border-gray-200"/>
             </div>
             <div className="relative flex justify-center">
-                <span className="bg-white px-2 text-xs text-gray-500">{children}</span>
+                <span className="bg-white px-2 text-s text-gray-500">{children}</span>
             </div>
         </div>
     )

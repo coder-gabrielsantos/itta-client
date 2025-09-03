@@ -32,12 +32,12 @@ export default function SignUp() {
             <div className="space-y-6">
                 <div className="flex items-center justify-between">
                     <Logo/>
-                    <span className="text-xs text-gray-400">© Itta 2025</span>
+                    <span className="text-xs text-gray-600">© Itta 2025</span>
                 </div>
 
                 <div className="space-y-1">
                     <h1 className="text-2xl font-semibold">Crie sua conta</h1>
-                    <p className="text-xs text-gray-500">É rápido e fácil</p>
+                    <p className="text-s text-gray-500">É rápido e fácil</p>
                 </div>
 
                 <form
