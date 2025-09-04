@@ -31,19 +31,22 @@ export default function Login() {
     return (
         <AuthLayout>
             <div className="space-y-6">
+                {/* Header com logo */}
                 <div className="flex items-center justify-between">
                     <Logo/>
-                    <span className="text-xs text-gray-600">© Itta 2025</span>
+                    <span className="text-sm text-slate-400">© Itta 2025</span>
                 </div>
 
-                <div className="space-y-1">
-                    <h1 className="text-2xl font-semibold">Bem-vindo de volta</h1>
-                    <p className="text-s text-gray-500">Entre com sua conta</p>
+                {/* Título / Subtítulo */}
+                <div className="space-y-2">
+                    <h1 className="text-4xl font-bold text-white">Bem-vindo de volta</h1>
+                    <p className="text-base text-slate-400">Entre com sua conta</p>
                 </div>
 
+                {/* Formulário */}
                 <form
                     onSubmit={handleSubmit}
-                    className="space-y-4 bg-white border rounded-xl p-6 shadow-md"
+                    className="space-y-5 bg-slate-900/70 border border-slate-700 rounded-2xl p-6 shadow-lg"
                 >
                     <TextField
                         type="email"
@@ -63,23 +66,28 @@ export default function Login() {
                             label="Lembrar-me"
                             checked={remember}
                             onChange={(e) => setRemember(e.target.checked)}
+                            className="text-sm text-slate-300"
                         />
-                        <Link to="#" className="text-xs text-blue-600 hover:underline">
+                        <Link to="#" className="text-sm text-blue-400 hover:text-blue-300 transition">
                             Esqueceu a senha?
                         </Link>
                     </div>
 
-                    <Button type="submit" disabled={loading}>
+                    <Button type="submit" disabled={loading} className="w-full text-lg py-3 shadow-md">
                         {loading ? 'Entrando...' : 'Entrar'}
                     </Button>
 
                     <Divider>ou</Divider>
 
-                    <OAuthButton provider="Google" onClick={() => alert('Google OAuth')}/>
+                    <OAuthButton
+                        provider="Google"
+                        className="!text-slate-100 !bg-slate-800 hover:!bg-slate-700 w-full text-base py-3"
+                        onClick={() => alert('Google OAuth')}
+                    />
 
-                    <p className="text-center text-xs text-gray-600">
+                    <p className="text-center text-sm text-slate-300">
                         Não tem conta?{' '}
-                        <Link to="/signup" className="text-blue-600 hover:underline">
+                        <Link to="/signup" className="text-blue-400 hover:text-blue-300 transition">
                             Cadastre-se
                         </Link>
                     </p>

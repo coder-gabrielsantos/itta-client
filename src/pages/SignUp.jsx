@@ -8,6 +8,9 @@ import { OAuthButton } from '../components/ui/OAuthButton'
 import { AuthLayout } from '../components/ui/AuthLayout'
 import { Link, useNavigate } from 'react-router-dom'
 
+// Ícones
+import { User, Mail } from 'lucide-react'
+
 export default function SignUp() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -19,7 +22,6 @@ export default function SignUp() {
         e.preventDefault()
         setLoading(true)
         try {
-            // aqui você chamaria sua API: fetch('/api/auth/signup', { ... })
             console.log({ name, email, password })
             navigate('/')
         } finally {
@@ -30,49 +32,60 @@ export default function SignUp() {
     return (
         <AuthLayout>
             <div className="space-y-6">
+                {/* Logo + ano */}
                 <div className="flex items-center justify-between">
                     <Logo/>
-                    <span className="text-xs text-gray-600">© Itta 2025</span>
+                    <span className="text-sm text-slate-400">© Itta 2025</span>
                 </div>
 
-                <div className="space-y-1">
-                    <h1 className="text-2xl font-semibold">Crie sua conta</h1>
-                    <p className="text-s text-gray-500">É rápido e fácil</p>
+                {/* Header */}
+                <div className="space-y-2">
+                    <h1 className="text-4xl font-bold text-white">Crie sua conta</h1>
+                    <p className="text-base text-slate-400">É rápido e fácil</p>
                 </div>
 
+                {/* Form */}
                 <form
                     onSubmit={handleSubmit}
-                    className="space-y-4 bg-white border rounded-xl p-6 shadow-md"
+                    className="space-y-5 bg-slate-900/70 border border-slate-700 rounded-2xl p-6 shadow-lg"
                 >
                     <TextField
                         type="text"
                         placeholder="Nome completo"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        leftIcon={User}
                     />
+
                     <TextField
                         type="email"
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        leftIcon={Mail}
                     />
+
                     <PasswordField
                         placeholder="Senha"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
 
-                    <Button type="submit" disabled={loading}>
+                    <Button type="submit" disabled={loading} className="w-full text-lg py-3">
                         {loading ? 'Cadastrando...' : 'Cadastrar'}
                     </Button>
 
                     <Divider>ou</Divider>
 
-                    <OAuthButton provider="Google" onClick={() => alert('Google OAuth')}/>
+                    <OAuthButton
+                        provider="Google"
+                        className="!text-slate-100 !bg-slate-800 hover:!bg-slate-700 w-full text-base py-3"
+                        onClick={() => alert('Google OAuth')}
+                    />
 
-                    <p className="text-center text-xs text-gray-600">
+                    <p className="text-center text-sm text-slate-300">
                         Já tem uma conta?{' '}
-                        <Link to="/login" className="text-blue-600 hover:underline">
+                        <Link to="/login" className="text-blue-400 hover:text-blue-300 transition">
                             Entre aqui
                         </Link>
                     </p>

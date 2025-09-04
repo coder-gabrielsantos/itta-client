@@ -1,14 +1,13 @@
-export function Checkbox({ label, checked, onChange, id }) {
+export function Checkbox({ id, label, className = '', ...props }) {
     return (
-        <div className="flex items-center gap-2">
+        <label htmlFor={id} className={`flex items-center gap-2 text-slate-300 text-sm cursor-pointer ${className}`}>
             <input
                 id={id}
                 type="checkbox"
-                checked={checked}
-                onChange={onChange}
-                className="h-4 w-4 rounded border-gray-300"
+                className="h-4 w-4 rounded border-slate-700 bg-slate-900/60 accent-blue-500 focus:ring-blue-500"
+                {...props}
             />
-            <label htmlFor={id} className="text-sm text-gray-700">{label}</label>
-        </div>
+            {label}
+        </label>
     )
 }
