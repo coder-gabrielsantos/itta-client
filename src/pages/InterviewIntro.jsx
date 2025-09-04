@@ -5,7 +5,6 @@ import { Mic, Keyboard, ShieldCheck, Timer, BadgeCheck } from 'lucide-react'
 
 export default function InterviewIntro() {
     return (
-        // ❌ nada de bg-gradient aqui; o fundo vem do SiteLayout
         <section className="flex items-center justify-center px-4">
             <div className="w-full max-w-4xl rounded-3xl shadow-xl border border-slate-700 bg-slate-900/70 p-8 sm:p-12 space-y-10">
                 {/* Cabeçalho */}
@@ -23,7 +22,7 @@ export default function InterviewIntro() {
                     <InfoCard
                         icon={<Timer className="h-5 w-5 text-blue-400" />}
                         title="Duração"
-                        desc="~10–15 min (modo curto). Você pode pausar a qualquer momento."
+                        desc="~10 – 15 min. Você pode pausar a qualquer momento."
                     />
                     <InfoCard
                         icon={<BadgeCheck className="h-5 w-5 text-indigo-400" />}
@@ -33,7 +32,7 @@ export default function InterviewIntro() {
                     <InfoCard
                         icon={<ShieldCheck className="h-5 w-5 text-emerald-400" />}
                         title="Privacidade"
-                        desc="Suas respostas são usadas apenas para gerar feedback e histórico."
+                        desc="Suas respostas são usadas apenas para gerar feedback."
                     />
                 </section>
 
