@@ -8,22 +8,25 @@ import { OAuthButton } from '../components/ui/OAuthButton'
 import { AuthLayout } from '../components/ui/AuthLayout'
 import { Link, useNavigate } from 'react-router-dom'
 
-// Ícones
 import { User, Mail } from 'lucide-react'
+import { useAuth } from "../contexts/AuthContext.jsx";
 
 export default function SignUp() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const { register } = useAuth()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
         try {
-            console.log({ name, email, password })
-            navigate('/')
+            await register({ name, email, password }) // POST /auth/register
+            navigate('/dashboard') // ou '/', ajuste como preferir
+        } catch (err) {
+            alert(err.message || 'Falha no cadastro')
         } finally {
             setLoading(false)
         }

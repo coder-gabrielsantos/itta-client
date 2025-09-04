@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import { Logo } from '../components/ui/Logo'
 import { TextField } from '../components/ui/TextField'
 import { PasswordField } from '../components/ui/PasswordField'
@@ -7,22 +8,24 @@ import { Button } from '../components/ui/Button'
 import { Divider } from '../components/ui/Divider'
 import { OAuthButton } from '../components/ui/OAuthButton'
 import { AuthLayout } from '../components/ui/AuthLayout'
-import { useNavigate, Link } from 'react-router-dom'
+import { useAuth } from "../contexts/AuthContext.jsx";
 
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [remember, setRemember] = useState(false)
     const [loading, setLoading] = useState(false)
+    const { login } = useAuth()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
         try {
-            // aqui você conecta com seu backend: fetch('/api/auth/signin', { ... })
-            console.log({ email, password, remember })
-            navigate('/')
+            await login({ email, password })
+            navigate('/dashboard') // ou '/' como preferir
+        } catch (err) {
+            alert(err.message || 'Falha no login')
         } finally {
             setLoading(false)
         }

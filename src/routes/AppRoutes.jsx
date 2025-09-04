@@ -8,7 +8,7 @@ import ResumeUpload from '../pages/ResumeUpload'
 import InterviewIntro from '../pages/InterviewIntro'
 
 function PrivateRoute({ children }) {
-    const isAuthenticated = !!localStorage.getItem('token')
+    const isAuthenticated = !!localStorage.getItem('accessToken')
     return isAuthenticated ? children : <Navigate to="/login" replace/>
 }
 
@@ -22,9 +22,9 @@ export function AppRoutes() {
 
             <Route element={<SiteLayout/>}>
                 <Route index element={<Home/>}/>
-                <Route path="/resumes" element={<ResumeUpload />} />
-                <Route path="/interviews" element={<InterviewIntro />} />
-                <Route path="/interviews/session" element={<div className="p-6">Sessão da entrevista (em breve)</div>} />
+                <Route path="/resumes" element={<ResumeUpload/>}/>
+                <Route path="/interviews" element={<InterviewIntro/>}/>
+                <Route path="/interviews/session" element={<div className="p-6">Sessão da entrevista (em breve)</div>}/>
 
                 {/* exemplo de rota protegida */}
                 <Route path="/dashboard" element={<PrivateRoute>
@@ -36,3 +36,5 @@ export function AppRoutes() {
         </Routes>
     )
 }
+
+export default AppRoutes
