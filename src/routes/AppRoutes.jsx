@@ -3,6 +3,7 @@ import SiteLayout from '../layouts/SiteLayout'
 import AuthLayoutRoute from '../layouts/AuthLayoutRoute'
 import Login from '../pages/Login'
 import SignUp from '../pages/SignUp'
+import Account from '../pages/Account'
 import Home from '../pages/Home'
 import ResumeUpload from '../pages/ResumeUpload'
 import InterviewIntro from '../pages/InterviewIntro'
@@ -19,6 +20,15 @@ export function AppRoutes() {
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/signup" element={<SignUp/>}/>
             </Route>
+
+            <Route
+                path="/account"
+                element={
+                    <PrivateRoute>
+                        <Account />
+                    </PrivateRoute>
+                }
+            />
 
             <Route element={<SiteLayout/>}>
                 <Route index element={<Home/>}/>
