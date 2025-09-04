@@ -19,7 +19,7 @@ export default function SiteLayout() {
                 <Navbar/>
             </header>
 
-            <main className="max-w-7xl mx-auto px-4 py-6 pt-20">
+            <main className="max-w-7xl mx-auto py-6 pt-20">
                 <ScrollToTop />
                 <Outlet />
             </main>
