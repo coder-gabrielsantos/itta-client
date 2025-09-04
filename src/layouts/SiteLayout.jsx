@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { Navbar } from '../components/ui/Navbar'
+import ScrollToTop from '../components/ScrollToTop'
 
 export default function SiteLayout() {
     return (
@@ -19,7 +20,8 @@ export default function SiteLayout() {
             </header>
 
             <main className="max-w-7xl mx-auto px-4 py-6 pt-20">
-                <Outlet/>
+                <ScrollToTop />
+                <Outlet />
             </main>
         </div>
     )

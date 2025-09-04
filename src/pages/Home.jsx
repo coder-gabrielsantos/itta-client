@@ -27,7 +27,7 @@ function MarketingHome() {
                 >
                     <div className="space-y-6">
                         <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
-                            Prepare-se para sua próxima oportunidade em tecnologia
+                            Prepare-se para conquistar sua próxima chance no mundo tech
                         </h1>
                         <p className="text-slate-300 text-lg max-w-xl leading-relaxed">
                             Simule entrevistas, melhore seu currículo e pratique desafios de programação —

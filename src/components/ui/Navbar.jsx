@@ -20,7 +20,6 @@ export function Navbar() {
                         { to: '/resumes', label: 'Currículos' },
                         { to: '/interviews', label: 'Entrevista' },
                         { to: '/challenges', label: 'Desafios' },
-                        { to: '/admin', label: 'Admin' },
                     ].map((link) => (
                         <Link
                             key={link.to}
