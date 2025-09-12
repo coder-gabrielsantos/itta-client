@@ -3,9 +3,8 @@ import SiteLayout from '../layouts/SiteLayout'
 import AuthLayoutRoute from '../layouts/AuthLayoutRoute'
 import Login from '../pages/Login'
 import SignUp from '../pages/SignUp'
-import Account from '../pages/Account'
 import Home from '../pages/Home'
-import ResumeUpload from '../pages/ResumeUpload'
+import ResumeUpload from '../pages/Resume.jsx'
 import InterviewIntro from '../pages/InterviewIntro'
 
 function PrivateRoute({ children }) {
@@ -21,20 +20,13 @@ export function AppRoutes() {
                 <Route path="/signup" element={<SignUp/>}/>
             </Route>
 
-            <Route
-                path="/account"
-                element={
-                    <PrivateRoute>
-                        <Account />
-                    </PrivateRoute>
-                }
-            />
-
             <Route element={<SiteLayout/>}>
                 <Route index element={<Home/>}/>
                 <Route path="/resumes" element={<ResumeUpload/>}/>
                 <Route path="/interviews" element={<InterviewIntro/>}/>
                 <Route path="/interviews/session" element={<div className="p-6">Sessão da entrevista (em breve)</div>}/>
+
+                <Route path="/account" element={<div className="p-6">Sessão do usuário (em breve)</div>}/>
 
                 {/* exemplo de rota protegida */}
                 <Route path="/dashboard" element={<PrivateRoute>
